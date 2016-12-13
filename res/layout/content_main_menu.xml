@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+
+    <TextView
+        android:id="@+id/society_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Society name"
+        android:layout_marginTop="60dp"
+        android:layout_centerInParent="false"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:background="@color/white"/>
+
+        <!--<GridView xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:id="@+id/gridview"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:numColumns="2"-->
+            <!--android:layout_marginTop="100dp"-->
+            <!--android:verticalSpacing="10dp"-->
+            <!--android:horizontalSpacing="10dp"-->
+            <!--android:stretchMode="columnWidth"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@android:color/white"-->
+            <!--/>-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_menu_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/society_name"></android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>

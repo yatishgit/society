@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp">
+
+   <TextView
+       android:id="@+id/poll_creator_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="name text"
+       android:padding="5dp"/>
+
+    <TextView
+        android:id="@+id/poll_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date text"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"/>
+
+    <TextView
+        android:id="@+id/poll_creator_flatno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="flat number"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:layout_below="@id/poll_creator_name"
+        android:padding="5dp"/>
+
+    <TextView
+        android:id="@+id/poll_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time text"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="false"
+        android:layout_below="@id/poll_creator_name"
+        android:padding="5dp"/>
+
+    <LinearLayout
+        android:id="@+id/tde"
+        android:layout_below="@id/poll_creator_flatno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/poll_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="title text"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="false"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/poll_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="description text"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="false"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/poll_expiry_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="expiry date"
+            android:padding="5dp"/>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/polls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tde"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/pollStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="poll status"/>
+
+        <TextView
+            android:id="@+id/editPollButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Poll"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorPrimaryDark"
+
+            android:padding="3dp"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

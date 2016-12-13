@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_centerInParent="true">
+
+
+    <ImageView
+        android:layout_width="@dimen/main_menu_icons"
+        android:layout_height="@dimen/main_menu_icons"
+        android:id="@+id/menu_image"
+        android:src="@drawable/check_mark"
+        android:layout_centerInParent="true"
+        android:padding="5dp"
+        android:scaleType="centerCrop"/>
+   
+    <TextView
+        android:id="@+id/menu_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="name Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:paddingTop="8dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="8dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/menu_image"
+        android:gravity="center"
+        />
+
+
+</RelativeLayout>

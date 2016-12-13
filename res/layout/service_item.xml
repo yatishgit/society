@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_centerInParent="true">
+
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:layout_width="@dimen/main_menu_icons"
+        android:layout_height="@dimen/main_menu_icons"
+        android:id="@+id/service_image"
+        android:src="@drawable/check_mark"
+        android:layout_centerInParent="true"
+        android:padding="5dp"
+        android:scaleType="centerCrop"/>
+    <!--<ImageView
+        android:id="@+id/album_cover_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:src="@drawable/check_mark"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"/>-->
+
+    <TextView
+        android:id="@+id/service_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="name Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/album_cover_image"
+        android:gravity="center"
+        />
+
+
+</RelativeLayout>

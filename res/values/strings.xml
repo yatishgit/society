@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Societtee</string>
+
+    <!--Login Activity-->
+    <string name="username">Username</string>
+    <string name="select_society">Select Society</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="invalid_username">Please Enter Valid Username</string>
+    <string name="invalid_password">Please Enter Valid Password</string>
+    <string name="invalid_username_password">Failed to login invalid username or password!</string>
+    <string name="some_error">Some Error Occurred. Please try after some time. </string>
+    <string name="failed_to_connect">Failed to connect to server. Please try after some time.</string>
+    <string name="no_internet">Internet not connected.</string>
+
+    <!--Forgot Password -->
+    <string name="valid_email_text">Please enter your registered email address</string>
+    <string name="submit">Submit</string>
+    <string name="email">Email Id</string>
+    <string name="valid_email">Please Enter Valid Email Id</string>
+    <string name="title_activity_main_menu">Societtee</string>
+    <string name="invalid_email">Invalid email id failed to reset password.Please use a valid email id.</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_services">Services</string>
+    <string name="title_activity_buzz">Buzz</string>
+    <string name="title_activity_my_profile">MyProfile</string>
+    <string name="title_activity_facilities">Facilities</string>
+
+    <!--  -->
+
+
+</resources>

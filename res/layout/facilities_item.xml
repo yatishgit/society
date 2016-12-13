@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_centerInParent="true"
+    android:layout_marginTop="10dp">
+
+    <TextView
+        android:id="@+id/facility_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="facility name"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:padding="8dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:gravity="left"
+
+        />
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_menu_icons"
+        android:id="@+id/facility_image"
+        android:src="@drawable/facilities"
+        android:layout_centerInParent="true"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:layout_below="@id/facility_name"
+        />
+
+    <TextView
+        android:id="@+id/facility_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Facility Description"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:padding="8dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:gravity="left"
+        android:layout_below="@id/facility_image"
+        />
+
+    <Button
+        android:id="@+id/check_availability_button"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@id/facility_description"
+        android:layout_alignParentRight="true"
+        android:padding="5dp"
+        android:text="Check Availability and Book"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"/>
+
+
+
+
+</RelativeLayout>

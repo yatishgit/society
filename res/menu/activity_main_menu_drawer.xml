@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/main_menu"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Main Menu" />
+        <item
+            android:id="@+id/album"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Album" />
+        <item
+            android:id="@+id/all_conversation"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="All Conversation" />
+        <item
+            android:id="@+id/poll_list"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Polls" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/buzz"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Buzz" />
+            <item
+                android:id="@+id/services"
+                android:icon="@drawable/societtee_logo"
+                android:title="Services" />
+            <item
+                android:id="@+id/my_profile"
+                android:icon="@drawable/profile_black"
+                android:title="My Profile" />
+            <item
+                android:id="@+id/facilities"
+                android:icon="@drawable/facilities"
+                android:title="Facilities" />
+        </menu>
+    </item>
+
+</menu>
