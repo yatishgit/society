@@ -10,7 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 import com.bean.Album;
+import com.bean.AlbumImages;
+import com.bean.Booking;
 import com.bean.Category;
+import com.bean.Committee;
 import com.bean.User;
 
 import java.util.ArrayList;
@@ -408,7 +411,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
 
-    //Methods for album ******************************************************************************************
+    //Methods for AlbumImages ******************************************************************************************
 
     public void addAlbum(Album album)
     {
@@ -483,6 +486,277 @@ public class DbHelper extends SQLiteOpenHelper {
         db.delete("album", "albumId" + "=" + albumId, null);
         db.close();
     }
+
+
+    //Methods for albumImages ******************************************************************************************
+
+    //Methods for AlbumImages ******************************************************************************************
+
+    public void addAlbumImage(AlbumImages albumImages)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("imageId",albumImages.getImageId());
+        values.put("albumId",albumImages.getAlbumId());
+        values.put("societyId",albumImages.getSocietyId());
+        values.put("image",albumImages.getImage());
+
+        // Inserting Row
+        db.insert("albumImage", null, values);
+        db.close(); // Closing database connection
+
+    }
+
+    public AlbumImages getAlbumImage(String imageId)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("albumImage", new String[]{"imageId", "albumId", "societyId", "image"}, "imageId" + "=?",
+                new String[]{imageId}, null, null, null, null);
+        AlbumImages albumImages = new AlbumImages();
+        if (cursor != null && cursor.moveToFirst()) {
+            albumImages = new AlbumImages(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+        }
+        db.close();
+        return albumImages;
+    }
+
+    public void deleteAllAlbumImages() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("albumImage", null, null);
+        db.close();
+    }
+
+    public void updateAlbumImages(AlbumImages albumImages)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues data=new ContentValues();
+        data.put("imageId",albumImages.getImageId());
+        data.put("albumId",albumImages.getAlbumId());
+        data.put("societyId",albumImages.getSocietyId());
+        data.put("image", albumImages.getImage());
+        db.update("albumImage", data, "imageId=?", new String[]{albumImages.getImageId()});
+        db.close();
+    }
+
+    public ArrayList<AlbumImages> getAllAlbumImages()
+    {
+        ArrayList<AlbumImages> albumImages=new ArrayList<AlbumImages>();
+        String selectQuery = "SELECT  * FROM albumImage";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                AlbumImages images;
+                images = new AlbumImages(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+                albumImages.add(images);
+            }while(cursor.moveToNext());
+        }
+        db.close();
+        return albumImages;
+    }
+
+    public void deleteAlbumImages(String imageId)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("albumImage", "imageId" + "=" + imageId, null);
+        db.close();
+    }
+
+
+
+    //Methods for Booking ******************************************************************************************
+
+    public void addBooking(Booking booking)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("bookingId",booking.getBookingId());
+        values.put("bookingDate",booking.getBookingDate());
+        values.put("userId",booking.getUserId());
+        values.put("facilityId", booking.getFacilityId());
+        values.put("fromDate",booking.getFromDate());
+        values.put("toDate",booking.getToDate());
+        values.put("buildingId",booking.getBuildingId());
+        values.put("flatNo",booking.getFlatNo());
+        values.put("amountDeposited",booking.getAmountDeposited());
+        values.put("depositedDate",booking.getDepositedDate());
+        values.put("rDescription",booking.getrDescription());
+        values.put("rPaymentmode",booking.getrPaymentmode());
+        values.put("rChequeNo",booking.getrChequeNo());
+        values.put("amountRefunded",booking.getAmountRefunded());
+        values.put("refundDate",booking.getRefundDate());
+        values.put("description",booking.getDescription());
+        values.put("paymentMode",booking.getPaymentMode());
+        values.put("chequeNo",booking.getChequeNo());
+        values.put("status",booking.getStatus());
+        values.put("societyId",booking.getSocietyId());
+
+        // Inserting Row
+        db.insert("booking", null, values);
+        db.close(); // Closing database connection
+
+    }
+
+    public Booking getBooking(String bookingId)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("booking", new String[]{}, "bookingId" + "=?",
+                new String[]{bookingId}, null, null, null, null);
+        Booking booking = new Booking();
+        if (cursor != null && cursor.moveToFirst()) {
+            booking = new Booking(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12), cursor.getString(13), cursor.getString(14), cursor.getString(15), cursor.getString(16), cursor.getString(17), cursor.getString(18), cursor.getString(19));
+        }
+        db.close();
+        return booking;
+    }
+
+    public void deleteAllBookings() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("booking", null, null);
+        db.close();
+    }
+
+    public void updateBooking(Booking booking)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("bookingId",booking.getBookingId());
+        values.put("bookingDate",booking.getBookingDate());
+        values.put("userId",booking.getUserId());
+        values.put("facilityId", booking.getFacilityId());
+        values.put("fromDate",booking.getFromDate());
+        values.put("toDate",booking.getToDate());
+        values.put("buildingId",booking.getBuildingId());
+        values.put("flatNo",booking.getFlatNo());
+        values.put("amountDeposited",booking.getAmountDeposited());
+        values.put("depositedDate",booking.getDepositedDate());
+        values.put("rDescription",booking.getrDescription());
+        values.put("rPaymentmode",booking.getrPaymentmode());
+        values.put("rChequeNo",booking.getrChequeNo());
+        values.put("amountRefunded",booking.getAmountRefunded());
+        values.put("refundDate",booking.getRefundDate());
+        values.put("description",booking.getDescription());
+        values.put("paymentMode",booking.getPaymentMode());
+        values.put("chequeNo",booking.getChequeNo());
+        values.put("status",booking.getStatus());
+        values.put("societyId",booking.getSocietyId());
+
+        db.update("booking", values, "bookingId=?", new String[]{booking.getBookingId()});
+        db.close();
+    }
+
+    public ArrayList<Booking> getAllBookings()
+    {
+        ArrayList<Booking> bookings=new ArrayList<Booking>();
+        String selectQuery = "SELECT  * FROM booking";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                Booking booking;
+                booking = new Booking(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12), cursor.getString(13), cursor.getString(14), cursor.getString(15), cursor.getString(16), cursor.getString(17), cursor.getString(18), cursor.getString(19));
+                bookings.add(booking);
+            }while(cursor.moveToNext());
+        }
+        db.close();
+        return bookings;
+    }
+
+    public void deleteBookings(String bookingId)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("booking", "bookingId" + "=" + bookingId, null);
+        db.close();
+    }
+
+
+
+
+
+    //Methods for Committee ******************************************************************************************
+
+    public void addCommittee(Committee committee)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("committeeId",committee.getCommitteeId());
+        values.put("name",committee.getName());
+        values.put("designation",committee.getDesignation());
+        values.put("description", committee.getDescription());
+        values.put("showContact",committee.getShowContact());
+        values.put("contactNo",committee.getContactNo());
+        values.put("societyId",committee.getSocietyId());
+        values.put("buildingId",committee.getBuildingId());
+        values.put("flatNo",committee.getFlatNo());
+
+        // Inserting Row
+        db.insert("committee", null, values);
+        db.close(); // Closing database connection
+
+    }
+
+    public Committee getCommittee(String committeeId)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("committee", new String[]{}, "committeeId" + "=?",
+                new String[]{committeeId}, null, null, null, null);
+        Committee committee = new Committee();
+        if (cursor != null && cursor.moveToFirst()) {
+            committee = new Committee(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8));
+        }
+        db.close();
+        return committee;
+    }
+
+    public void deleteAllCommittees() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("committee", null, null);
+        db.close();
+    }
+
+    public void updateCommittee(Committee committee)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("committeeId",committee.getCommitteeId());
+        values.put("name",committee.getName());
+        values.put("designation",committee.getDesignation());
+        values.put("description", committee.getDescription());
+        values.put("showContact",committee.getShowContact());
+        values.put("contactNo",committee.getContactNo());
+        values.put("societyId",committee.getSocietyId());
+        values.put("buildingId",committee.getBuildingId());
+        values.put("flatNo",committee.getFlatNo());
+
+
+        db.update("committee", values, "committeeId=?", new String[]{committee.getCommitteeId()});
+        db.close();
+    }
+
+    public ArrayList<Committee> getAllCommittees()
+    {
+        ArrayList<Committee> committees=new ArrayList<Committee>();
+        String selectQuery = "SELECT  * FROM committee";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                Committee committee;
+                committee = new Committee(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8));
+                committees.add(committee);
+            }while(cursor.moveToNext());
+        }
+        db.close();
+        return committees;
+    }
+
+    public void deleteCommittee(String committeeId)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("committee", "committeeId" + "=" + committeeId, null);
+        db.close();
+    }
+
 
 
 }
