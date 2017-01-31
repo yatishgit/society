@@ -98,4 +98,4 @@ public class AlbumImageGalleryRecyclerViewAdapter extends RecyclerView
     public interface MyClickListener {
         public void onItemClick(int position, View v);
     }
-}
+}///
